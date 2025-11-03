@@ -1,0 +1,3 @@
+RUN THIS ON POWERSHELL admin
+
+irm https://get.activated.win |iex

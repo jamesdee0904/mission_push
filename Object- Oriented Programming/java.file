@@ -1,0 +1,32 @@
+import java.util.Scanner;
+import static java.lang.System.in;
+public class Activity {
+    public static void main(String[] args) {//TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+    Scanner sc = new Scanner(System.in);
+       System.out.print("Enter number of students: ");
+        int number = sc.nextInt();
+        for (int i = 0; i<= number; i++) {
+            System.out.print("Enter mark of student" + i + ": ");
+            int mark = sc.nextInt();
+            if (mark < 0 || mark >= 101) {
+                System.out.println("Student" + i + "Invalid mark! must be between 0 and 100");
+                continue;
+            }
+
+            if (mark >= 90) {
+                System.out.println("Student "+ i +": " + "Mark " + mark + " - Grade: A");
+            } else if (mark == 75) {
+                System.out.println("Student "+ i +": " + "Mark " + mark + " - Grade: B");
+            } else if (mark >= 74) {
+                System.out.println("Student "+ i +": " + "Mark " + mark + " - Grade: C");
+            } else if (mark >= 60) {
+                System.out.println("Student "+ i +": " + "Mark " + mark + " - Grade: D");
+            } else if (mark <= 40) {
+                System.out.println("Student "+ i +": " + "Mark " + mark + " - Grade: F");
+            }
+
+        }
+        sc.close();
+        }
+
+}

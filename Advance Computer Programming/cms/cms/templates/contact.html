@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Contact Form</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }} <!-- CSRF token -->
+        <p>
+            {{ form.name.label }} <br>
+            {{ form.name(size=30) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+
+    {% if message %}
+    <p class="message">{{ message }}</p>
+    {% endif %}
+</section>
+{% endblock %}

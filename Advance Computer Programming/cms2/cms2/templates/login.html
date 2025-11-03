@@ -1,0 +1,50 @@
+{# --------------------------------------------- #}
+{# This template shows the login form #}
+{# Users can log in to access their profile #}
+{# --------------------------------------------- #}
+
+{% extends 'base.html' %}
+{# Inherit everything from base.html (header, footer, CSS, JS) #}
+
+{% block title %}Login{% endblock %}
+{# Sets the page title in the browser tab #}
+
+{% block content %}
+<h2>Login</h2>
+
+{# ------------------------ #}
+{# Start of the form #}
+{# method="POST" means the form data will be sent securely to the server #}
+<form method="POST">
+    
+    {# CSRF token (hidden field) to protect against form hacking #}
+    {{ form.hidden_tag() }}
+
+    {# Username input #}
+    <p>
+        {{ form.username.label }}<br>
+        {{ form.username(size=30) }}
+    </p>
+
+    {# Password input #}
+    <p>
+        {{ form.password.label }}<br>
+        {{ form.password(size=30) }}
+    </p>
+
+    {# Submit button #}
+    <p>{{ form.submit() }}</p>
+</form>
+
+{# ------------------------ #}
+{# Display any general error message passed from Flask #}
+{% if error %}
+<p class="error">{{ error }}</p>
+{% endif %}
+
+{# Display field-specific validation errors #}
+{% for field, errors in form.errors.items() %}
+    <p class="error">{{ field }}: {{ errors[0] }}</p>
+{% endfor %}
+
+{% endblock %}
